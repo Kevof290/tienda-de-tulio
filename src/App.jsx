@@ -8,12 +8,14 @@ import ProtectedRoute  from './components/ProtectedRoute'
 import Home            from './pages/Home'
 import Login           from './pages/Login'
 import Register        from './pages/Register'
+import GalleryDemo from './pages/GalleryDemo'
 
 // Páginas privadas
 import Gallery         from './pages/Gallery'
 import ProductDetail   from './pages/ProductDetail'
 import Profile         from './pages/Profile'
 import CreatePost      from './pages/CreatePost'
+
 
 const App = () => {
   return (
@@ -24,18 +26,16 @@ const App = () => {
           <Route path="/"           element={<Home />} />
           <Route path="/login"      element={<Login />} />
           <Route path="/register"   element={<Register />} />
+          <Route path="/gallerydemo" element={<GalleryDemo />} />
 
-          <Route path="/gallery"    element={
-            <ProtectedRoute><Gallery /></ProtectedRoute>
+  // Quito el ProtectedRoute para visualizacion de las paginas privadas.
+          <Route path="/gallery"    element={<Gallery />
           }/>
-          <Route path="/product/:id" element={
-            <ProtectedRoute><ProductDetail /></ProtectedRoute>
+          <Route path="/product/:id" element={<ProductDetail />
           }/>
-          <Route path="/profile"    element={
-            <ProtectedRoute><Profile /></ProtectedRoute>
+          <Route path="/profile"    element={<Profile />
           }/>
-          <Route path="/create"     element={
-            <ProtectedRoute><CreatePost /></ProtectedRoute>
+          <Route path="/create"     element={<CreatePost />
           }/>
 
         </Routes>
